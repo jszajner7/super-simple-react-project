@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React Example</title>
+  <script src="https://fb.me/react-15.0.1.js"></script>
+  <script src="https://fb.me/react-dom-15.0.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+</head>
+<body>
+  <div id='application'></div>
+
+  <script type="text/babel">
+  const ClickableComponent = React.createClass({
+getInitialState: function () {
+  return { clicked: 0 }
+},
+handleClick: function() {
+  console.log ("You clicked the button!")
+  let newValue = this.state.clicked + 1;
+  this.setState({ clicked: newValue });
+},
+
+render: function (){
+  console.log(this.state);
+  return (
+    <div>
+      <button onClick={this.handleClick}>Click me!</button>
+      <h1>Clicked: {this.state.clicked}</h1>
+    </div>
+  )
+}
+});
+
+
+
+    ReactDOM.render(<ClickableComponent />, document.querySelector('#application'));
+  </script>
+</body>
+</html>
